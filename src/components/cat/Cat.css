@@ -1,0 +1,82 @@
+.Cat-body {
+	position: absolute;
+	top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.Cat-left-eye {
+  position: absolute;
+	top: 130px;
+	left: 150px;
+}
+
+.Cat-right-eye {
+  transform: scaleX(-1);
+  position: absolute;
+	top: 130px;
+	left: 250px;
+}
+
+.Cat-left-iris {
+  position: absolute;
+	top: 160px;
+  left: 190px;
+  animation: 3s Move-eyes 2s ease-in;
+}
+
+.Cat-right-iris {
+  /*transform: scaleX(-1);*/
+  position: absolute;
+	top: 160px;
+  left: 280px;
+  animation: 3s Move-eyes 2s ease-in;
+}
+
+.Cat-mouth {
+  position: absolute;
+	top: 240px;
+	left: 185px;
+}
+
+.Cat-left-paw {
+  transform: scaleX(-1);
+  position: absolute;
+	top: 260px;
+  left: -10px;
+  z-index: -1;
+}
+
+.Cat-right-paw {
+  position: absolute;
+	top: 260px;
+  left: 390px;
+  z-index: -1;
+}
+
+.Cat-tail {
+  position: absolute;
+  top: 250px;
+  left: 420px;
+  z-index: -1;
+  animation: 5s Move-tail 5s cubic-bezier(.17,.67,.73,.69);
+}
+
+
+@keyframes Move-eyes{
+  50% {transform: translate(20px); }
+  100% {transform: translate(0px); }
+}
+
+@keyframes Move-tail{
+  0% {transform: rotateY(35deg); }
+  25% {transform: rotateY(0deg); }
+  50% {transform: rotateY(-20deg); }
+  100% {transform: rotateY(0deg); }
+}
+
+
+@keyframes App-logo-spin {
+  from { transform: translate(0deg); }
+  to { transform: rotate(360deg); }
+}
