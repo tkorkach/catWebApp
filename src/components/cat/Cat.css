@@ -41,7 +41,8 @@
 .Cat-mouth {
   position: absolute;
 	top: 240px;
-	left: 185px;
+  left: 185px;
+  animation: 3s Smile 3s ease-in;
 }
 
 .Cat-left-paw {
@@ -85,3 +86,12 @@
   from { transform: translate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+@keyframes Smile {
+  25% {transform: scale(1.2)}
+  50% {transform: scale(1.4)}
+  75% {transform: scale(1.2)}
+  100% {transform: scale(1)}
+
+}
+
