@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CheckListItem from './CheckListItem'
+import './CheckList.css';
 
 class CheckList extends Component{
     constructor(){
@@ -30,13 +31,13 @@ class CheckList extends Component{
       render() {
         return (
             <div className="CheckList">
-            <input type = "text"
+            <input type = "text" className = "ListTitle"
                     value = {this.state.listTitle}
                     placeholder = "Shopping list name"
                     onChange = {this.updateTitle.bind(this)}
              />
               {this.getItemList()}
-              <button onClick={this.addItem}>Add more +</button>
+              <button className="AddButton" onClick={this.addItem}>Add more +</button>
             </div>
         );
       }

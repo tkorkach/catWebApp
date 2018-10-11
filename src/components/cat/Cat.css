@@ -1,3 +1,9 @@
+.Cat {
+  position: relative;
+  width: 700px;
+  color: pink;
+}
+
 .Cat-body {
 	position: absolute;
 	top: 0;

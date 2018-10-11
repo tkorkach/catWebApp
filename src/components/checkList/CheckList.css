@@ -1,0 +1,22 @@
+input{
+    outline: none;
+    border-width: 0 0 2px;
+    border-color: grey;
+    font-size: 16pt;
+}
+
+.ListTitle {
+    font-size: 30px;
+    padding: 10px;
+    border-color: white;
+}
+
+.CheckList {
+    padding: 20px;
+}
+
+.AddButton {
+    margin: 20px;
+    align-items: center;
+    font-size: 18pt;
+}
