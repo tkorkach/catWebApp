@@ -13,7 +13,6 @@ class CheckList extends Component{
 
     addItem = () => {
         this.setState({numberOfItems: this.state.numberOfItems+1})
-        console.log("numberOfItems: " + this.state.numberOfItems)
       }
     
       getItemList = () => {

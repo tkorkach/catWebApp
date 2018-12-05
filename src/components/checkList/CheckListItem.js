@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './CheckListItem.css';
 
 class CheckListItem extends Component {
     constructor() {
@@ -6,7 +7,8 @@ class CheckListItem extends Component {
         this.state = {
           value: '',
           checked: false,
-          itemIsRemoved: false
+          itemIsRemoved: false,
+          textClass: ''
         }
       }
 
@@ -16,6 +18,12 @@ class CheckListItem extends Component {
     
       updateChecked(event) {
         this.setState({ checked: event.target.checked })
+        if(this.state.checked){
+            this.setState({'textClass': ''})
+        }
+        else{
+            this.setState({'textClass': 'CrossedItemText'})
+        }
       }
 
       removeItem = (value) => {
@@ -30,7 +38,7 @@ class CheckListItem extends Component {
                     checked={this.state.checked}
                     onChange={this.updateChecked.bind(this)}
                 />
-                <input type="text"
+                <input type="text" className = {this.state.textClass}
                     value={this.state.value}
                     placeholder = "cat food"
                     onChange={this.updateValue.bind(this)}
