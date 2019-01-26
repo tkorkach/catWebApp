@@ -9,17 +9,14 @@ class CheckList extends Component{
             numberOfItems: 3, 
             listTitle: '',
             textForCat: 'default cat text'
-          }
-    }
-    //Checklist - App
-    alertTextForCat(){
-      this.props.alertCat(this.state.textForCat);
+          };
     }
 
 
     //CheckListItem - > CheckList
     onCheckListItemInput(inputText){
       this.setState({textForCat: inputText})
+      alert(this.state.textForCat);
     }
 
     addItem = () => {
@@ -30,8 +27,7 @@ class CheckList extends Component{
         let items = []
           for (let i = 0; i < this.state.numberOfItems; i++) {
             items.push(<CheckListItem 
-              alertText={this.onCheckListItemInput.bind(this)}
-              onChange={this.alertTextForCat.bind(this)}/>)
+              alertTextForCat={this.onCheckListItemInput.bind(this)}/>)
           }
           return items
       }

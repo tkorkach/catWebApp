@@ -5,22 +5,11 @@ import './App.css';
 
 
 class App extends Component {
-  constructor(){
-    super();
-    this.state = {
-        textForCat: ''
-      }
-  }
-
-  alertCatText(inputText){
-    this.setState({textForCat: inputText})
-    alert(this.state.textForCat);
-  }
 
   render() {
     return (
       <div className="App">
-        <CheckList alertCat={this.alertCatText.bind(this)}/>
+        <CheckList/>
         <CatComponent/>
       </div>
     );

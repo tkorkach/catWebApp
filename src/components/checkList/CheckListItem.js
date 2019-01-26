@@ -13,7 +13,7 @@ class CheckListItem extends Component {
       }
 
       alertValue(){
-          this.props.alertText(this.state.value)
+          this.props.alertTextForCat(this.state.value)
       }
 
       updateValue(event) {
