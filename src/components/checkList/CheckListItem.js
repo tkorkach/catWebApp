@@ -12,6 +12,10 @@ class CheckListItem extends Component {
         }
       }
 
+      alertValue(){
+          this.props.alertTextForCat(this.state.value)
+      }
+
       updateValue(event) {
         this.setState({ value: event.target.value })
       }
@@ -29,6 +33,11 @@ class CheckListItem extends Component {
       removeItem = (value) => {
         this.setState({itemIsRemoved: true})
       }
+
+      onValueChange(event) {
+        this.updateValue(event);
+        this.alertValue()
+      }
       
       displayItem = () => {
         if (this.state.itemIsRemoved === false) {
@@ -41,7 +50,7 @@ class CheckListItem extends Component {
                 <input type="text" className = {this.state.textClass}
                     value={this.state.value}
                     placeholder = "cat food"
-                    onChange={this.updateValue.bind(this)}
+                    onChange={this.onValueChange.bind(this)}
                 />
                 <button onClick={this.removeItem}>-</button>
             </form>
