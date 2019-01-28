@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CheckListItem from './CheckListItem'
 import './CheckList.css';
+import CatComponent from './cat/Cat';
 
 class CheckList extends Component{
     constructor(){
@@ -8,7 +9,7 @@ class CheckList extends Component{
         this.state = {
             numberOfItems: 3, 
             listTitle: '',
-            textForCat: 'default cat text'
+            textForCat: 'default cat text',
           };
     }
 
@@ -16,7 +17,9 @@ class CheckList extends Component{
     //CheckListItem - > CheckList
     onCheckListItemInput(inputText){
       this.setState({textForCat: inputText})
-      alert(this.state.textForCat);
+      if (this.state.textForCat === 'beer'){
+        alert(this.state.textForCat);
+      }
     }
 
     addItem = () => {
@@ -44,14 +47,18 @@ class CheckList extends Component{
       render() {
         return (
             <div className="CheckList">
-            <input type = "text" className = "ListTitle"
+              <div className="List">
+                <input type = "text" className = "ListTitle"
                     value = {this.state.listTitle}
                     placeholder = "Shopping list name"
                     onChange = {this.onTitleChange.bind(this)}
-             />
-              {this.getItemList()}
-              <button className="AddButton" onClick={this.addItem}>Add more +</button>
+                />
+                {this.getItemList()}
+                <button className="AddButton" onClick={this.addItem}>Add more +</button>
             </div>
+            <CatComponent/>
+            </div>
+
         );
       }
 }

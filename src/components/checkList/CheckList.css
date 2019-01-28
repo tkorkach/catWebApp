@@ -11,12 +11,24 @@ input{
     border-color: white;
 }
 
-.CheckList {
+.List {
     padding: 20px;
 }
+
 
 .AddButton {
     margin: 20px;
     align-items: center;
     font-size: 18pt;
 }
+
+.CheckList {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  @media screen and (max-width: 920px) {
+    .CheckList {
+      flex-direction: column;  
+    }
+  }
