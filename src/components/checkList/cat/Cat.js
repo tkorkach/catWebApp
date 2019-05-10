@@ -11,7 +11,9 @@ class Cat extends Component {
       }
 
     smile(){
-        this.setState({'mouthClass': 'Cat-mouth-smile'})
+        if (this.props.textForCat === 'beer'){
+            this.setState({'mouthClass': 'Cat-mouth-smile'})
+        }
     }  
 
     render() {

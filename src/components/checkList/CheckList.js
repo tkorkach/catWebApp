@@ -17,9 +17,6 @@ class CheckList extends Component{
     //CheckListItem - > CheckList
     onCheckListItemInput(inputText){
       this.setState({textForCat: inputText})
-      if (this.state.textForCat === 'beer'){
-        alert(this.state.textForCat);
-      }
     }
 
     addItem = () => {
@@ -56,7 +53,7 @@ class CheckList extends Component{
                 {this.getItemList()}
                 <button className="AddButton" onClick={this.addItem}>Add more +</button>
             </div>
-            <CatComponent/>
+            <CatComponent textForCat={this.state.textForCat}/>
             </div>
 
         );
