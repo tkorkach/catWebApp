@@ -42,7 +42,6 @@
   position: absolute;
 	top: 240px;
   left: 185px;
-  animation: 3s Smile 3s ease-in;
 }
 
 .Cat-left-paw {
@@ -82,10 +81,16 @@
 }
 
 @keyframes Smile {
-  25% {transform: scale(1.2)}
-  50% {transform: scale(1.4)}
-  75% {transform: scale(1.2)}
+  10% {transform: scale(1.2)}
+  20% {transform: scale(1.4)}
+  90% {transform: scale(1.2)}
   100% {transform: scale(1)}
+}
 
+.Cat-mouth-smile {
+  position: absolute;
+	top: 240px;
+  left: 185px;
+  animation: Smile 5s ease-in;
 }
 

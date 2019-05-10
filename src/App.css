@@ -1,12 +1,3 @@
-.App {
-  display: flex;
-  justify-content: space-between;
-}
 
-@media screen and (max-width: 920px) {
-  .App {
-    flex-direction: column;  
-  }
-}
 
 
