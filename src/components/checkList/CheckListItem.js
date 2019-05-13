@@ -36,7 +36,7 @@ class CheckListItem extends Component {
 
       onValueChange(event) {
         this.updateValue(event);
-        this.alertValue()
+        //this.alertValue()
       }
       
       displayItem = () => {

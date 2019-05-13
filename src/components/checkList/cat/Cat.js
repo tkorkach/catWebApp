@@ -16,6 +16,16 @@ class Cat extends Component {
         }
     }  
 
+    getClassNames() {
+        console.log('text for cat: ' + this.state.textForCat)
+        if (this.props.textForCat === 'beer'){   
+            return 'Cat-mouth-smile';
+        }
+        else{
+            return 'Cat-mouth';
+        }
+    }
+
     render() {
         return (
             <div className="Cat" onClick={this.smile.bind(this)}>
@@ -24,7 +34,7 @@ class Cat extends Component {
                 <img className="Cat-right-eye" src={require('../../../images/catEye.png')}></img>
                 <img className="Cat-left-iris" src={require('../../../images/catIris.png')}></img>
                 <img className="Cat-right-iris" src={require('../../../images/catIris.png')}></img>
-                <img className={this.state.mouthClass} src={require('../../../images/catMouth.png')}></img>
+                <img className={this.getClassNames()} src={require('../../../images/catMouth.png')}></img>
                 <img className="Cat-left-paw" src={require('../../../images/catPaw.png')}></img>
                 <img className="Cat-right-paw" src={require('../../../images/catPaw.png')}></img>
                 <img className="Cat-tail" src={require('../../../images/catTail.png')}></img>
