@@ -13,10 +13,13 @@ class CheckList extends Component{
           };
     }
 
-
-    //CheckListItem - > CheckList
+    //communication CheckListItem - > CheckList
+    //Fix me: 
+    //when inputText "beer" is passt to function, only "bee" is saved to state
     onCheckListItemInput(inputText){
       this.setState({textForCat: inputText})
+      //console.log('Checklist: passed input text: ' + inputText)
+      //console.log('Checklist: textForCat state: ' + this.state.textForCat)
     }
 
     addItem = () => {
@@ -27,7 +30,7 @@ class CheckList extends Component{
         let items = []
           for (let i = 0; i < this.state.numberOfItems; i++) {
             items.push(<CheckListItem 
-              alertTextForCat={this.onCheckListItemInput.bind(this)}/>)
+              updateTextForCat={this.onCheckListItemInput.bind(this)} key={i}/>)
           }
           return items
       }
@@ -36,12 +39,12 @@ class CheckList extends Component{
         this.setState({listTitle: event.target.value})
       }
 
-      onTitleChange(event) {
+    onTitleChange(event) {
         this.updateTitle(event);
         this.alertTitle()
       }
 
-      render() {
+    render() {
         return (
             <div className="CheckList">
               <div className="List">
@@ -55,9 +58,8 @@ class CheckList extends Component{
             </div>
             <CatComponent textForCat={this.state.textForCat}/>
             </div>
-
         );
-      }
+    }
 }
 
 export default CheckList;

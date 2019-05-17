@@ -12,12 +12,10 @@ class CheckListItem extends Component {
         }
       }
 
-      alertValue(){
-          this.props.alertTextForCat(this.state.value)
-      }
-
       updateValue(event) {
         this.setState({ value: event.target.value })
+        console.log('CheckListItem text value state: ' + this.state.value)
+        this.props.updateTextForCat(this.state.value)
       }
     
       updateChecked(event) {
@@ -36,7 +34,6 @@ class CheckListItem extends Component {
 
       onValueChange(event) {
         this.updateValue(event);
-        //this.alertValue()
       }
       
       displayItem = () => {
