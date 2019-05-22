@@ -41,7 +41,6 @@ class CheckList extends Component{
 
     onTitleChange(event) {
         this.updateTitle(event);
-        this.alertTitle()
       }
 
     render() {
