@@ -3,18 +3,6 @@ import './Cat.css';
 
 
 class Cat extends Component {
-    constructor() {
-        super();
-        this.state = {
-          mouthClass: 'Cat-mouth'
-        }
-      }
-
-    smile(){
-        if (this.props.textForCat === 'beer'){
-            this.setState({'mouthClass': 'Cat-mouth-smile'})
-        }
-    }  
 
     getMouthClassName() {
         if (this.props.textForCat === 'beer'){   
@@ -55,7 +43,7 @@ class Cat extends Component {
 
     render() {
         return (
-            <div className="Cat" onClick={this.smile.bind(this)}>
+            <div className="Cat">
                 <img className="Cat-body" src={require('../../../images/catBody.png')}></img> 
                 <img className="Cat-left-eye" src={require('../../../images/catEye.png')}></img>
                 <img className="Cat-right-eye" src={require('../../../images/catEye.png')}></img>
