@@ -13,13 +13,8 @@ class CheckList extends Component{
           };
     }
 
-    //communication CheckListItem - > CheckList
-    //Fix me: 
-    //when inputText "beer" is passt to function, only "bee" is saved to state
     onCheckListItemInput(inputText){
       this.setState({textForCat: inputText})
-      //console.log('Checklist: passed input text: ' + inputText)
-      //console.log('Checklist: textForCat state: ' + this.state.textForCat)
     }
 
     addItem = () => {
