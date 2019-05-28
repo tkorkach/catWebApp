@@ -14,8 +14,9 @@ class CheckListItem extends Component {
 
       updateValue(event) {
         this.setState({ value: event.target.value })
-        console.log('CheckListItem text value state: ' + this.state.value)
-        this.props.updateTextForCat(this.state.value)
+        setTimeout(()=>{
+          this.props.updateTextForCat(this.state.value)
+        }, 500);  
       }
     
       updateChecked(event) {
@@ -31,10 +32,6 @@ class CheckListItem extends Component {
       removeItem = (value) => {
         this.setState({itemIsRemoved: true})
       }
-
-      onValueChange(event) {
-        this.updateValue(event);
-      }
       
       displayItem = () => {
         if (this.state.itemIsRemoved === false) {
@@ -47,7 +44,7 @@ class CheckListItem extends Component {
                 <input type="text" className = {this.state.textClass}
                     value={this.state.value}
                     placeholder = "cat food"
-                    onChange={this.onValueChange.bind(this)}
+                    onChange={(event) => this.updateValue(event)}
                 />
                 <button onClick={this.removeItem}>-</button>
             </form>
