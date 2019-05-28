@@ -9,7 +9,7 @@ class CheckList extends Component{
         this.state = {
             numberOfItems: 3, 
             listTitle: '',
-            textForCat: 'default cat text',
+            textForCat: '',
           };
     }
 
@@ -34,10 +34,6 @@ class CheckList extends Component{
         this.setState({listTitle: event.target.value})
       }
 
-    onTitleChange(event) {
-        this.updateTitle(event);
-      }
-
     render() {
         return (
             <div className="CheckList">
@@ -45,7 +41,7 @@ class CheckList extends Component{
                 <input type = "text" className = "ListTitle"
                     value = {this.state.listTitle}
                     placeholder = "Shopping list name"
-                    onChange = {this.onTitleChange.bind(this)}
+                    onChange = {this.updateTitle.bind(this)}
                 />
                 {this.getItemList()}
                 <button className="AddButton" onClick={this.addItem}>Add more +</button>
