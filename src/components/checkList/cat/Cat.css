@@ -36,6 +36,20 @@
   animation: 2s Move-eyes 1s ease-in;
 }
 
+.Cat-left-iris-unwell {
+  position: absolute;
+	top: 175px;
+  left: 190px;
+  animation: 2s Move-eyes ease-in;
+}
+
+.Cat-right-iris-unwell {
+  position: absolute;
+	top: 175px;
+  left: 280px;
+  animation: 2s Move-eyes ease-in;
+}
+
 .Cat-mouth {
   position: absolute;
 	top: 240px;
@@ -88,6 +102,10 @@
   animation: 1s MoveLeftPaw 2s 3 ease-in;
 }
 
+.Open-mouth {
+  animation: 2s SmallMouth 1s ease-in;
+}
+
 
 @keyframes Move-eyes{
   25% {transform: translate(20px); }
@@ -104,6 +122,10 @@
   25% {transform: scale(1.4)}
   75% {transform: scale(1.4)}
   100% {transform: scale(1)}
+}
+
+@keyframes SmallMouth {
+  100% {transform: scale(-0.5)}
 }
 
 @keyframes MoveLeftPaw {
