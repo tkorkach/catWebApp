@@ -3,14 +3,21 @@ import './Cat.css';
 
 
 class Cat extends Component {
+    constructor(){
+        super();
+        this.state = {
+            catMouthClass: 'Cat-mouth'
+          };
+    }
+
 
     getMouthClassName() {
         if (this.props.textForCat === 'beer'){   
             return 'Cat-mouth-smile';
         }
-        if (this.props.textForCat === 'broccoli') {
+        /*if (this.props.textForCat === 'broccoli') {
             return  'Cat-mouth Open-mouth'
-        }
+        }*/
         else{
             return 'Cat-mouth';
         }
