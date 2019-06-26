@@ -15,9 +15,9 @@ class Cat extends Component {
         if (this.props.textForCat === 'beer'){   
             return 'Cat-mouth-smile';
         }
-        /*if (this.props.textForCat === 'broccoli') {
-            return  'Cat-mouth Open-mouth'
-        }*/
+        if (this.props.textForCat === 'broccoli') {
+            return  'Cat-mouth Shrink-mouth'
+        }
         else{
             return 'Cat-mouth';
         }
