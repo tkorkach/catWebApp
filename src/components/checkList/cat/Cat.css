@@ -86,6 +86,21 @@
   animation: 3s Smile 2s forwards;
 }
 
+.Throw-up-drop {
+  position: absolute;
+	top: 260px;
+  left: 185px;
+  transform: scale(0.5);
+  animation: 2s DropFall forwards;
+}
+
+.Throw-up {
+  position: absolute;
+  top: 450px;
+  left: 185px;
+  animation: 3s FadeIn;
+}
+
 .Cat-left-paw-with-beer {
   transform: scaleX(-1);
   position: absolute;
@@ -138,6 +153,19 @@
   75% {transform: translate(-10px, 10px); }
   100% {transform: translate(0px); }
 }
+
+@keyframes DropFall {
+  0% {transform: scale(0.5);}
+  100% {transform: translate(0px, 200px) scale(0.7); }
+}
+
+@keyframes FadeIn {
+  0% {opacity: 0; }
+  50% {opacity: 0; }
+  100% {opacity: 1; }
+}
+
+
 
 
 

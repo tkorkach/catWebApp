@@ -3,12 +3,7 @@ import './Cat.css';
 
 
 class Cat extends Component {
-    constructor(){
-        super();
-        this.state = {
-            catMouthClass: 'Cat-mouth'
-          };
-    }
+
 
 
     getMouthClassName() {
@@ -74,6 +69,16 @@ class Cat extends Component {
 
 
     render() {
+        let throwUpCmp = "";
+        if (this.props.textForCat === 'broccoli') {
+            throwUpCmp = (
+                <div>
+                    <img className="Throw-up" src={require('../../../images/throwUp2.png')}></img>
+                    <img className="Throw-up-drop" src={require('../../../images/throwUp1.png')}></img>
+                </div>
+            )
+        }
+
         return (
             <div className="Cat">
                 <img className="Cat-body" src={require('../../../images/catBody.png')}></img> 
@@ -85,6 +90,7 @@ class Cat extends Component {
                 <img className={this.getPawClassName()} src={this.getPawImageSource()}></img>
                 <img className="Cat-right-paw" src={require('../../../images/catPaw.png')}></img>
                 <img className="Cat-tail" src={require('../../../images/catTail.png')}></img>
+                {throwUpCmp}
             </div>
         )  
     }
