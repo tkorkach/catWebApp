@@ -1,0 +1,14 @@
+.listTile {
+  background-color: #edf0f1;
+  color: #24252a;
+  margin: 20px;
+  height: 100px;
+  width: calc((100% / 3) - 20px);
+  padding: 10px;
+  border-radius: 10px;
+  align: middle;
+}
+
+h2 {
+  text-align: center;
+}

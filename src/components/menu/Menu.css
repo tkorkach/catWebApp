@@ -1,33 +1,31 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:500');
+@import url("https://fonts.googleapis.com/css?family=Montserrat:500");
 
 .container {
-    /*width: 96%;*/
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    background-color: #24252A;
-    padding: 30px, 10%;
+  /*width: 96%;*/
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: #24252a;
+  padding: 30px, 10%;
 }
 
 button {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 500;
-    font-size: 16px;
-    color: #edf0f1; 
-    background-color: rgba(0, 136, 169, 1);
-    background-color: #24252A;
-    text-decoration: none;
-    margin: 10px;
-    cursor: pointer;
-    border-radius: 10px;
-    transition: all 0.3s ease 0s;
-
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #edf0f1;
+  background-color: #24252a;
+  text-decoration: none;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: all 0.3s ease 0s;
 }
 
 nav {
-    margin: 0px 20px;
-    width: 30%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  margin: 0px 20px;
+  width: 30%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
