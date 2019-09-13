@@ -9,8 +9,7 @@ class CheckList extends Component {
     this.state = {
       numberOfItems: 3,
       listTitle: "",
-      textForCat: "",
-      name: ""
+      textForCat: ""
     };
   }
 
@@ -37,6 +36,10 @@ class CheckList extends Component {
 
   updateTitle = event => {
     this.setState({ listTitle: event.target.value });
+
+    setTimeout(() => {
+      this.props.updateTitle(this.state.listTitle);
+    }, 500);
   };
 
   render() {
