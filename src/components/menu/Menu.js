@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import "./Menu.css";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { createList } from "../../actions/shoppingListActions";
 
 class Menu extends Component {
   saveShoppingList() {
@@ -8,7 +11,7 @@ class Menu extends Component {
       name: this.props.listTitle
     };
 
-    console.log(newList);
+    this.props.createList(newList, this.props.history);
   }
 
   render() {
@@ -27,4 +30,11 @@ class Menu extends Component {
   }
 }
 
-export default Menu;
+Menu.propTypes = {
+  createList: PropTypes.func.isRequired
+};
+
+export default connect(
+  null,
+  { createList }
+)(Menu);

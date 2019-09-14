@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Menu from "./menu/Menu";
 import CheckList from "./checkList/CheckList";
 
-export default class ShoppingList extends Component {
+class ShoppingList extends Component {
   constructor() {
     super();
     this.state = {
@@ -17,9 +17,11 @@ export default class ShoppingList extends Component {
   render() {
     return (
       <div>
-        <Menu listTitle={this.state.listTitle} />
+        <Menu listTitle={this.state.listTitle} history={this.props.history} />
         <CheckList updateTitle={this.onUpdateTitle.bind(this)} />
       </div>
     );
   }
 }
+
+export default ShoppingList;
