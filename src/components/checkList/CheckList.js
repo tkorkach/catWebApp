@@ -19,7 +19,7 @@ class CheckList extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.errors) {
-      this.setState({ errors: nextProps.errors });
+      this.setState({ errors: nextProps.errors, textForCat: "error" });
     }
   }
 

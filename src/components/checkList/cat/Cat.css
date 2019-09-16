@@ -4,69 +4,76 @@
 }
 
 .Cat-body {
-	position: absolute;
-	top: 0;
+  position: absolute;
+  top: 0;
   left: 0;
 }
 
 .Cat-left-eye {
   position: absolute;
-	top: 130px;
-	left: 150px;
+  top: 130px;
+  left: 150px;
 }
 
 .Cat-right-eye {
   transform: scaleX(-1);
   position: absolute;
-	top: 130px;
-	left: 250px;
+  top: 130px;
+  left: 250px;
 }
 
 .Cat-left-iris {
   position: absolute;
-	top: 160px;
+  top: 160px;
   left: 190px;
   animation: 2s Move-eyes 1s ease-in;
 }
 
 .Cat-right-iris {
   position: absolute;
-	top: 160px;
+  top: 160px;
   left: 280px;
   animation: 2s Move-eyes 1s ease-in;
 }
 
 .Cat-left-iris-unwell {
   position: absolute;
-	top: 175px;
+  top: 175px;
   left: 190px;
   animation: 2s Move-eyes ease-in;
 }
 
 .Cat-right-iris-unwell {
   position: absolute;
-	top: 175px;
+  top: 175px;
   left: 280px;
   animation: 2s Move-eyes ease-in;
 }
 
 .Cat-mouth {
   position: absolute;
-	top: 240px;
+  top: 240px;
   left: 185px;
 }
 
 .Cat-left-paw {
   transform: scaleX(-1);
   position: absolute;
-	top: 260px;
+  top: 260px;
   left: -10px;
   z-index: -1;
 }
 
 .Cat-right-paw {
   position: absolute;
-	top: 260px;
+  top: 260px;
+  left: 390px;
+  z-index: -1;
+}
+
+.Cat-right-paw-error {
+  position: absolute;
+  top: 220px;
   left: 390px;
   z-index: -1;
 }
@@ -76,19 +83,19 @@
   top: 250px;
   left: 420px;
   z-index: -1;
-  animation: 1s Move-tail 3s 2 cubic-bezier(.17,.67,.73,.69);
+  animation: 1s Move-tail 3s 2 cubic-bezier(0.17, 0.67, 0.73, 0.69);
 }
 
 .Cat-mouth-smile {
   position: absolute;
-	top: 240px;
+  top: 240px;
   left: 185px;
   animation: 3s Smile 2s forwards;
 }
 
 .Throw-up-drop {
   position: absolute;
-	top: 260px;
+  top: 260px;
   left: 185px;
   transform: scale(0.5);
   animation: 2s DropFall forwards;
@@ -104,7 +111,7 @@
 .Cat-left-paw-with-beer {
   transform: scaleX(-1);
   position: absolute;
-	top: 230px;
+  top: 230px;
   left: -35px;
   z-index: -1;
 }
@@ -121,52 +128,83 @@
   animation: 2s SmallMouth 1s forwards;
 }
 
-
-@keyframes Move-eyes{
-  25% {transform: translate(20px); }
-  75% {transform: translate(20px); }
-  100% {transform: translate(0px); }
+@keyframes Move-eyes {
+  25% {
+    transform: translate(20px);
+  }
+  75% {
+    transform: translate(20px);
+  }
+  100% {
+    transform: translate(0px);
+  }
 }
 
-@keyframes Move-tail{
-  50% {transform:  translate(-10px, -10px) rotate(-5deg); }
-  100% {transform: rotate(0deg); }
+@keyframes Move-tail {
+  50% {
+    transform: translate(-10px, -10px) rotate(-5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }
 
 @keyframes Smile {
-  25% {transform: scale(1.4)}
-  75% {transform: scale(1.4)}
-  100% {transform: scale(1)}
+  25% {
+    transform: scale(1.4);
+  }
+  75% {
+    transform: scale(1.4);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 @keyframes SmallMouth {
-  100% {transform: scale(0.5)}
+  100% {
+    transform: scale(0.5);
+  }
 }
 
 @keyframes MoveLeftPaw {
-  50% {transform: scaleX(-1) rotate(10deg); }
-  100% {transform: scaleX(-1) rotate(0deg); }
+  50% {
+    transform: scaleX(-1) rotate(10deg);
+  }
+  100% {
+    transform: scaleX(-1) rotate(0deg);
+  }
 }
 
 @keyframes LookAtLeftPaw {
-  25% {transform: translate(-10px, 10px); }
-  75% {transform: translate(-10px, 10px); }
-  100% {transform: translate(0px); }
+  25% {
+    transform: translate(-10px, 10px);
+  }
+  75% {
+    transform: translate(-10px, 10px);
+  }
+  100% {
+    transform: translate(0px);
+  }
 }
 
 @keyframes DropFall {
-  0% {transform: scale(0.5);}
-  100% {transform: translate(0px, 200px) scale(0.7); }
+  0% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: translate(0px, 200px) scale(0.7);
+  }
 }
 
 @keyframes FadeIn {
-  0% {opacity: 0; }
-  50% {opacity: 0; }
-  100% {opacity: 1; }
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
-
-
-
-
-
-
