@@ -16,6 +16,16 @@ class Cat extends Component {
   getPawImageSource() {
     if (this.props.textForCat === "beer") {
       return require("../../../images/catPawWithBeer.png");
+    } else if (this.props.textForCat === "error") {
+      return require("../../../images/catPawError.png");
+    } else {
+      return require("../../../images/catPaw.png");
+    }
+  }
+
+  getRightPawImageSource() {
+    if (this.props.textForCat === "error") {
+      return require("../../../images/catPawError.png");
     } else {
       return require("../../../images/catPaw.png");
     }
@@ -24,8 +34,18 @@ class Cat extends Component {
   getPawClassName() {
     if (this.props.textForCat === "beer") {
       return "Cat-left-paw-with-beer Move-left-paw";
+    } else if (this.props.textForCat === "error") {
+      return "Cat-left-paw-with-beer";
     } else {
       return "Cat-left-paw";
+    }
+  }
+
+  getRightPawClassName() {
+    if (this.props.textForCat === "error") {
+      return "Cat-right-paw-error";
+    } else {
+      return "Cat-right-paw";
     }
   }
 
@@ -51,6 +71,8 @@ class Cat extends Component {
   getMouthImageSource() {
     if (this.props.textForCat === "broccoli") {
       return require("../../../images/catMouthFeelingUneasy.png");
+    } else if (this.props.textForCat === "error") {
+      return require("../../../images/catMouthOpen.png");
     } else {
       return require("../../../images/catMouth.png");
     }
@@ -98,8 +120,8 @@ class Cat extends Component {
           src={this.getPawImageSource()}
         ></img>
         <img
-          className="Cat-right-paw"
-          src={require("../../../images/catPaw.png")}
+          className={this.getRightPawClassName()}
+          src={this.getRightPawImageSource()}
         ></img>
         <img
           className="Cat-tail"
