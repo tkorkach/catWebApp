@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import CheckListItem from "./CheckListItem";
 import "./CheckList.css";
 import CatComponent from "./cat/Cat";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { createList } from "../../actions/shoppingListActions";
 
 class CheckList extends Component {
   constructor() {
@@ -9,8 +12,15 @@ class CheckList extends Component {
     this.state = {
       numberOfItems: 3,
       listTitle: "",
-      textForCat: ""
+      textForCat: "",
+      errors: {}
     };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({ errors: nextProps.errors });
+    }
   }
 
   onCheckListItemInput(inputText) {
@@ -43,6 +53,7 @@ class CheckList extends Component {
   };
 
   render() {
+    const { errors } = this.state;
     return (
       <div className="CheckList">
         <div className="List">
@@ -54,6 +65,7 @@ class CheckList extends Component {
             placeholder="Shopping list name"
             onChange={this.updateTitle.bind(this)}
           />
+          <p>{errors.name}</p>
           {this.getItemList()}
           <button className="AddButton" onClick={this.addItem}>
             Add more +
@@ -65,4 +77,11 @@ class CheckList extends Component {
   }
 }
 
-export default CheckList;
+const mapStateToProps = state => ({
+  errors: state.errors
+});
+
+export default connect(
+  mapStateToProps,
+  { createList }
+)(CheckList);
