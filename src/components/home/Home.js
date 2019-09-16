@@ -2,8 +2,15 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
 import ListOverview from "./ListOverview";
+import { connect } from "react-redux";
+import { getLists } from "../../actions/shoppingListActions";
+import PropTypes from "prop-types";
 
 class Home extends Component {
+  componentDidMount() {
+    this.props.getLists();
+  }
+
   render() {
     return (
       <div className="home">
@@ -22,4 +29,16 @@ class Home extends Component {
   }
 }
 
-export default Home;
+Home.propTypes = {
+  list: PropTypes.object.isRequired,
+  getLists: PropTypes.func.isRequired
+};
+
+const mapStateToProps = state => ({
+  list: state.list
+});
+
+export default connect(
+  mapStateToProps,
+  { getLists }
+)(Home);

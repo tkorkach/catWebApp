@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_ERRORS } from "./types";
+import { GET_ERRORS, GET_LISTS } from "./types";
 
 export const createList = (list, history) => async dispatch => {
   try {
@@ -14,4 +14,12 @@ export const createList = (list, history) => async dispatch => {
       payload: err.response.data
     });
   }
+};
+
+export const getLists = () => async dispatch => {
+  const res = await axios.get("http://localhost:8080/api/catsShoppingList/all");
+  dispatch({
+    type: GET_LISTS,
+    payload: res.data
+  });
 };
