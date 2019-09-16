@@ -1,34 +1,45 @@
-input{
-    outline: none;
-    border-width: 0 0 2px;
-    border-color: grey;
-    font-size: 16pt;
+input {
+  outline: none;
+  border-width: 0 0 2px;
+  border-color: grey;
+  font-size: 16pt;
 }
 
 .ListTitle {
-    font-size: 30px;
-    padding: 10px;
-    border-color: white;
+  font-size: 30px;
+  padding: 10px;
+  border-color: white;
+}
+
+.ListTitleInvalid {
+  font-size: 30px;
+  padding: 10px;
+  border-color: red;
+  border-radius: 20%;
+}
+
+.inputError {
+  color: red;
+  font-size: 10pt;
 }
 
 .List {
-    padding: 20px;
+  padding: 20px;
 }
 
-
 .AddButton {
-    margin: 20px;
-    align-items: center;
-    font-size: 18pt;
+  margin: 20px;
+  align-items: center;
+  font-size: 18pt;
 }
 
 .CheckList {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 920px) {
+  .CheckList {
+    flex-direction: column;
   }
-  
-  @media screen and (max-width: 920px) {
-    .CheckList {
-      flex-direction: column;  
-    }
-  }
+}
