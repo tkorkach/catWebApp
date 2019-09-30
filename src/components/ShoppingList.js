@@ -18,7 +18,10 @@ class ShoppingList extends Component {
     return (
       <div>
         <Menu listTitle={this.state.listTitle} history={this.props.history} />
-        <CheckList updateTitle={this.onUpdateTitle.bind(this)} />
+        <CheckList
+          updateTitle={this.onUpdateTitle.bind(this)}
+          initialListTitle={this.state.listTitle}
+        />
       </div>
     );
   }
