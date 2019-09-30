@@ -8,6 +8,10 @@ export const createOrUpdateList = (list, history) => async dispatch => {
       list
     );
     history.push("/");
+    dispatch({
+      type: GET_ERRORS,
+      payload: {}
+    });
   } catch (err) {
     dispatch({
       type: GET_ERRORS,

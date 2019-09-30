@@ -21,7 +21,7 @@ class CheckList extends Component {
     if (nextProps.errors) {
       this.setState({ errors: nextProps.errors, textForCat: "error" });
     }
-    this.setState({ listTitle: nextProps.initialListTitle });
+    this.setState({ listTitle: nextProps.initialListTitle, textForCat: "" });
   }
 
   onCheckListItemInput(inputText) {
