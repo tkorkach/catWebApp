@@ -12,14 +12,15 @@ class Home extends Component {
   }
 
   render() {
+    const { lists } = this.props.list;
+
     return (
       <div className="home">
         <h1>Cat's shopping list</h1>
         <div className="listsOverview">
-          <ListOverview />
-          <ListOverview />
-          <ListOverview />
-          <ListOverview />
+          {lists.map(list => (
+            <ListOverview key={list.id} list={list} />
+          ))}
         </div>
         <Link to="/newList">
           <button className="AddButton">+ Add new shopping list</button>

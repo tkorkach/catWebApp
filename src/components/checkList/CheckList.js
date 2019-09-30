@@ -4,11 +4,11 @@ import "./CheckList.css";
 import CatComponent from "./cat/Cat";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { createList } from "../../actions/shoppingListActions";
+import { createOrUpdateList } from "../../actions/shoppingListActions";
 
 class CheckList extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       numberOfItems: 3,
       listTitle: "",
@@ -21,6 +21,7 @@ class CheckList extends Component {
     if (nextProps.errors) {
       this.setState({ errors: nextProps.errors, textForCat: "error" });
     }
+    this.setState({ listTitle: nextProps.initialListTitle });
   }
 
   onCheckListItemInput(inputText) {
@@ -85,11 +86,15 @@ class CheckList extends Component {
   }
 }
 
+CheckList.propTypes = {
+  errors: PropTypes.object.isRequired
+};
+
 const mapStateToProps = state => ({
   errors: state.errors
 });
 
 export default connect(
   mapStateToProps,
-  { createList }
+  { createOrUpdateList }
 )(CheckList);

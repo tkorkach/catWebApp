@@ -1,7 +1,7 @@
 import axios from "axios";
-import { GET_ERRORS, GET_LISTS } from "./types";
+import { GET_ERRORS, GET_LISTS, GET_LIST } from "./types";
 
-export const createList = (list, history) => async dispatch => {
+export const createOrUpdateList = (list, history) => async dispatch => {
   try {
     const res = await axios.post(
       "http://localhost:8080/api/catsShoppingList/",
@@ -16,10 +16,34 @@ export const createList = (list, history) => async dispatch => {
   }
 };
 
+export const deleteList = (id, history) => async dispatch => {
+  try {
+    const res = await axios.delete(
+      `http://localhost:8080/api/catsShoppingList/${id}`
+    );
+    history.push("/");
+  } catch (err) {
+    dispatch({
+      type: GET_ERRORS,
+      payload: err.response.data
+    });
+  }
+};
+
 export const getLists = () => async dispatch => {
   const res = await axios.get("http://localhost:8080/api/catsShoppingList/all");
   dispatch({
     type: GET_LISTS,
+    payload: res.data
+  });
+};
+
+export const getList = (id, history) => async dispatch => {
+  const res = await axios.get(
+    `http://localhost:8080/api/catsShoppingList/${id}`
+  );
+  dispatch({
+    type: GET_LIST,
     payload: res.data
   });
 };

@@ -1,4 +1,4 @@
-import { GET_LISTS } from "../actions/types";
+import { GET_LISTS, GET_LIST } from "../actions/types";
 
 const initialState = {
   lists: [],
@@ -11,6 +11,11 @@ export default function(state = initialState, action) {
       return {
         ...state,
         lists: action.payload
+      };
+    case GET_LIST:
+      return {
+        ...state,
+        list: action.payload
       };
     default:
       return state;
