@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:500");
+
 .listTile {
   background-color: #edf0f1;
   color: #24252a;
@@ -10,4 +12,12 @@
 
 h2 {
   text-align: center;
+}
+
+.listLink {
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #24252a;
 }
