@@ -7,7 +7,7 @@ class ListOverview extends Component {
     const { list } = this.props;
     return (
       <div className="listTile">
-        <Link to={`/updateList/${list.id}`}>
+        <Link to={`/updateList/${list.id}`} className="listLink">
           <h2>{list.name}</h2>
         </Link>
       </div>
