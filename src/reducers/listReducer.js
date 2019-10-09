@@ -1,8 +1,9 @@
-import { GET_LISTS, GET_LIST } from "../actions/types";
+import { GET_LISTS, GET_LIST, GET_ITEMS } from "../actions/types";
 
 const initialState = {
   lists: [],
-  list: {}
+  list: {},
+  items: []
 };
 
 export default function(state = initialState, action) {
@@ -16,6 +17,11 @@ export default function(state = initialState, action) {
       return {
         ...state,
         list: action.payload
+      };
+    case GET_ITEMS:
+      return {
+        ...state,
+        items: action.payload
       };
     default:
       return state;

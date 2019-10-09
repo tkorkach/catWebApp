@@ -13,7 +13,8 @@ class CheckList extends Component {
       numberOfItems: 3,
       listTitle: "",
       textForCat: "",
-      errors: {}
+      errors: {},
+      items: props.initialItems
     };
   }
 
@@ -21,7 +22,13 @@ class CheckList extends Component {
     if (nextProps.errors) {
       this.setState({ errors: nextProps.errors, textForCat: "error" });
     }
-    this.setState({ listTitle: nextProps.initialListTitle, textForCat: "" });
+    console.log("checkList nest props: " + nextProps);
+    this.setState({
+      listTitle: nextProps.initialListTitle,
+      textForCat: "",
+      items: nextProps.initialItems,
+      numberOfItems: nextProps.initialItems.length
+    });
   }
 
   onCheckListItemInput(inputText) {
@@ -33,16 +40,14 @@ class CheckList extends Component {
   };
 
   getItemList = () => {
-    let items = [];
-    for (let i = 0; i < this.state.numberOfItems; i++) {
-      items.push(
-        <CheckListItem
-          updateTextForCat={this.onCheckListItemInput.bind(this)}
-          key={i}
-        />
-      );
-    }
-    return items;
+    const items = this.state.items;
+    return (
+      <div className="itemList">
+        {items.map(item => (
+          <CheckListItem key={item.id} item={item} />
+        ))}
+      </div>
+    );
   };
 
   updateTitle = event => {

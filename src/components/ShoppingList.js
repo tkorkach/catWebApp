@@ -6,7 +6,24 @@ class ShoppingList extends Component {
   constructor() {
     super();
     this.state = {
-      listTitle: ""
+      listTitle: "",
+      items: [
+        {
+          id: 11,
+          name: "",
+          checked: false
+        },
+        {
+          id: 12,
+          name: "",
+          checked: false
+        },
+        {
+          id: 13,
+          name: "",
+          checked: false
+        }
+      ]
     };
   }
 
@@ -21,6 +38,7 @@ class ShoppingList extends Component {
         <CheckList
           updateTitle={this.onUpdateTitle.bind(this)}
           initialListTitle={this.state.listTitle}
+          initialItems={this.state.items}
         />
       </div>
     );

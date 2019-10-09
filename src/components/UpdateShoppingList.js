@@ -3,25 +3,28 @@ import Menu from "./menu/Menu";
 import CheckList from "./checkList/CheckList";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { getList } from "../actions/shoppingListActions";
+import { getList, getItems } from "../actions/shoppingListActions";
 
 class UpdateShoppingList extends Component {
   constructor() {
     super();
     this.state = {
-      listTitle: ""
+      listTitle: "",
+      items: []
     };
   }
 
   componentDidMount() {
     const { id } = this.props.match.params;
     this.props.getList(id, this.props.history);
+    this.props.getItems(id);
   }
 
   componentWillReceiveProps(nextProps) {
     const { name } = nextProps.list;
     this.setState({
-      listTitle: name
+      listTitle: name,
+      items: nextProps.items
     });
   }
 
@@ -41,6 +44,7 @@ class UpdateShoppingList extends Component {
         <CheckList
           updateTitle={this.onUpdateTitle.bind(this)}
           initialListTitle={this.state.listTitle}
+          initialItems={this.state.items}
         />
       </div>
     );
@@ -49,14 +53,16 @@ class UpdateShoppingList extends Component {
 
 UpdateShoppingList.propTypes = {
   getList: PropTypes.func.isRequired,
-  list: PropTypes.object.isRequired
+  list: PropTypes.object.isRequired,
+  items: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-  list: state.list.list
+  list: state.list.list,
+  items: state.list.items
 });
 
 export default connect(
   mapStateToProps,
-  { getList }
+  { getList, getItems }
 )(UpdateShoppingList);

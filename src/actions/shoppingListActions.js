@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_ERRORS, GET_LISTS, GET_LIST } from "./types";
+import { GET_ERRORS, GET_LISTS, GET_LIST, GET_ITEMS } from "./types";
 
 export const createOrUpdateList = (list, history) => async dispatch => {
   try {
@@ -38,6 +38,16 @@ export const getLists = () => async dispatch => {
   const res = await axios.get("http://localhost:8080/api/catsShoppingList/all");
   dispatch({
     type: GET_LISTS,
+    payload: res.data
+  });
+};
+
+export const getItems = id => async dispatch => {
+  const res = await axios.get(
+    `http://localhost:8080/api/catsShoppingList/${id}/allItems`
+  );
+  dispatch({
+    type: GET_ITEMS,
     payload: res.data
   });
 };
