@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import "./CheckListItem.css";
+import { connect } from "react-redux";
+import { createItem } from "../../actions/shoppingListActions";
+import PropTypes from "prop-types";
 
 class CheckListItem extends Component {
   constructor() {
@@ -24,6 +27,7 @@ class CheckListItem extends Component {
     this.setState({ value: event.target.value });
     setTimeout(() => {
       this.props.updateTextForCat(this.state.value);
+      this.props.createItem(1, { name: this.state.value });
     }, 500);
   }
 
@@ -67,4 +71,11 @@ class CheckListItem extends Component {
   }
 }
 
-export default CheckListItem;
+CheckListItem.propTypes = {
+  createItem: PropTypes.func.isRequired
+};
+
+export default connect(
+  null,
+  { createItem }
+)(CheckListItem);

@@ -20,6 +20,20 @@ export const createOrUpdateList = (list, history) => async dispatch => {
   }
 };
 
+export const createItem = (id, item) => async dispatch => {
+  try {
+    const res = await axios.post(
+      `http://localhost:8080/api/catsShoppingList/${id}/item`,
+      item
+    );
+  } catch (err) {
+    dispatch({
+      type: GET_ERRORS,
+      payload: err.response.data
+    });
+  }
+};
+
 export const deleteList = (id, history) => async dispatch => {
   try {
     const res = await axios.delete(
