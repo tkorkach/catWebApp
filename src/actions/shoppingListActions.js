@@ -1,13 +1,12 @@
 import axios from "axios";
 import { GET_ERRORS, GET_LISTS, GET_LIST, GET_ITEMS } from "./types";
 
-export const createOrUpdateList = (list, history) => async dispatch => {
+export const createOrUpdateList = list => async dispatch => {
   try {
     const res = await axios.post(
       "http://localhost:8080/api/catsShoppingList/",
       list
     );
-    history.push("/");
     dispatch({
       type: GET_ERRORS,
       payload: {}

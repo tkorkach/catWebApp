@@ -42,9 +42,11 @@ class UpdateShoppingList extends Component {
           update={true}
         />
         <CheckList
+          id={this.props.match.params.id}
           updateTitle={this.onUpdateTitle.bind(this)}
           initialListTitle={this.state.listTitle}
           initialItems={this.state.items}
+          update={true}
         />
       </div>
     );

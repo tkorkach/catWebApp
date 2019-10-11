@@ -7,6 +7,7 @@ import PropTypes from "prop-types";
 class CheckListItem extends Component {
   constructor() {
     super();
+    this.timeout = 0;
     this.state = {
       value: "",
       checked: false,
@@ -15,19 +16,22 @@ class CheckListItem extends Component {
     };
   }
 
-  componentWillReceiveProps(nextProps) {
-    console.log("items next props: ", nextProps);
+  componentWillMount() {
     this.setState({
-      value: nextProps.item.name,
-      checked: nextProps.item.checked
+      value: this.props.item.name,
+      checked: this.props.item.checked
     });
   }
 
   updateValue(event) {
     this.setState({ value: event.target.value });
-    setTimeout(() => {
+    /*setTimeout(() => {
       this.props.updateTextForCat(this.state.value);
-      this.props.createItem(1, { name: this.state.value });
+    }, 1000);*/
+
+    if (this.timeout) clearTimeout(this.timeout);
+    this.timeout = setTimeout(() => {
+      this.props.createItem(this.props.listId, { name: this.state.value });
     }, 500);
   }
 
