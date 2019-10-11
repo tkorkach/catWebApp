@@ -15,8 +15,8 @@ class CheckList extends Component {
       listId: "",
       textForCat: "",
       errors: {},
-      items: []
-      //items: props.initialItems
+      items: [],
+      minNumberOfItmes: 3
     };
   }
 
@@ -38,20 +38,14 @@ class CheckList extends Component {
 
   addItem = () => {
     const items = this.state.items;
-    var uniqueId = "x" + items.length;
     this.setState({
-      items: items.push({
-        id: uniqueId,
-        name: "",
-        checked: false
-      })
+      minNumberOfItmes: items.length + 1
     });
-    console.log("items after add: ", items);
   };
 
   getItemList = () => {
     const items = this.state.items;
-    while (items.length < 3) {
+    while (items.length < this.state.minNumberOfItmes) {
       var uniqueId = "x" + items.length;
       items.push({ id: uniqueId, name: "", checked: false });
     }
