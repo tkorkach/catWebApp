@@ -9,18 +9,6 @@ import {
 } from "../../actions/shoppingListActions";
 
 class Menu extends Component {
-  saveOrUpdateShoppingList() {
-    const list = {
-      name: this.props.listTitle
-    };
-
-    if (this.props.update) {
-      list.id = this.props.id;
-    }
-
-    this.props.createOrUpdateList(list, this.props.history);
-  }
-
   deleteShoppingList() {
     this.props.deleteList(this.props.id, this.props.history);
   }
@@ -32,9 +20,6 @@ class Menu extends Component {
           <Link to="/">
             <button> Home </button>
           </Link>
-          <button onClick={this.saveOrUpdateShoppingList.bind(this)}>
-            Save
-          </button>
           <button>Share</button>
           <button onClick={this.deleteShoppingList.bind(this)}>Delete</button>
         </nav>

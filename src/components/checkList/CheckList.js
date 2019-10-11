@@ -7,14 +7,16 @@ import { connect } from "react-redux";
 import { createOrUpdateList } from "../../actions/shoppingListActions";
 
 class CheckList extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
+    this.timeout = 0;
     this.state = {
-      numberOfItems: 3,
       listTitle: "",
+      listId: "",
       textForCat: "",
       errors: {},
-      items: props.initialItems
+      items: [],
+      minNumberOfItmes: 3
     };
   }
 
@@ -22,12 +24,11 @@ class CheckList extends Component {
     if (nextProps.errors) {
       this.setState({ errors: nextProps.errors, textForCat: "error" });
     }
-    console.log("checkList nest props: " + nextProps);
     this.setState({
       listTitle: nextProps.initialListTitle,
+      listId: nextProps.id,
       textForCat: "",
-      items: nextProps.initialItems,
-      numberOfItems: nextProps.initialItems.length
+      items: nextProps.initialItems
     });
   }
 
@@ -36,15 +37,22 @@ class CheckList extends Component {
   }
 
   addItem = () => {
-    this.setState({ numberOfItems: this.state.numberOfItems + 1 });
+    const items = this.state.items;
+    this.setState({
+      minNumberOfItmes: items.length + 1
+    });
   };
 
   getItemList = () => {
     const items = this.state.items;
+    while (items.length < this.state.minNumberOfItmes) {
+      var uniqueId = "x" + items.length;
+      items.push({ id: uniqueId, name: "", checked: false });
+    }
     return (
       <div className="itemList">
         {items.map(item => (
-          <CheckListItem key={item.id} item={item} />
+          <CheckListItem key={item.id} item={item} listId={this.state.listId} />
         ))}
       </div>
     );
@@ -55,6 +63,19 @@ class CheckList extends Component {
 
     setTimeout(() => {
       this.props.updateTitle(this.state.listTitle);
+    }, 500);
+
+    const list = {
+      name: this.state.listTitle
+    };
+
+    if (this.props.update) {
+      list.id = this.props.id;
+    }
+
+    if (this.timeout) clearTimeout(this.timeout);
+    this.timeout = setTimeout(() => {
+      this.props.createOrUpdateList(list);
     }, 500);
   };
 
@@ -92,6 +113,7 @@ class CheckList extends Component {
 }
 
 CheckList.propTypes = {
+  createOrUpdateList: PropTypes.func.isRequired,
   errors: PropTypes.object.isRequired
 };
 
