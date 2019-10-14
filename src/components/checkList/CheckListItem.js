@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./CheckListItem.css";
 import { connect } from "react-redux";
-import { createItem } from "../../actions/shoppingListActions";
+import { createItem, deleteItem } from "../../actions/shoppingListActions";
 import PropTypes from "prop-types";
 
 class CheckListItem extends Component {
@@ -9,6 +9,7 @@ class CheckListItem extends Component {
     super();
     this.timeout = 0;
     this.state = {
+      id: "",
       value: "",
       checked: false,
       itemIsRemoved: false,
@@ -18,6 +19,7 @@ class CheckListItem extends Component {
 
   componentWillMount() {
     this.setState({
+      id: this.props.item.id,
       value: this.props.item.name,
       checked: this.props.item.checked
     });
@@ -25,9 +27,9 @@ class CheckListItem extends Component {
 
   updateValue(event) {
     this.setState({ value: event.target.value });
-    /*setTimeout(() => {
+    setTimeout(() => {
       this.props.updateTextForCat(this.state.value);
-    }, 1000);*/
+    }, 1000);
 
     if (this.timeout) clearTimeout(this.timeout);
     this.timeout = setTimeout(() => {
@@ -46,6 +48,7 @@ class CheckListItem extends Component {
 
   removeItem = value => {
     this.setState({ itemIsRemoved: true });
+    this.props.deleteItem(this.state.id);
   };
 
   displayItem = () => {
@@ -76,10 +79,11 @@ class CheckListItem extends Component {
 }
 
 CheckListItem.propTypes = {
-  createItem: PropTypes.func.isRequired
+  createItem: PropTypes.func.isRequired,
+  deleteItem: PropTypes.func.isRequired
 };
 
 export default connect(
   null,
-  { createItem }
+  { createItem, deleteItem }
 )(CheckListItem);

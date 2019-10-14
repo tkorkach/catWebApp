@@ -47,6 +47,19 @@ export const deleteList = (id, history) => async dispatch => {
   }
 };
 
+export const deleteItem = id => async dispatch => {
+  try {
+    const res = await axios.delete(
+      `http://localhost:8080/api/catsShoppingList/item/${id}`
+    );
+  } catch (err) {
+    dispatch({
+      type: GET_ERRORS,
+      payload: err.response.data
+    });
+  }
+};
+
 export const getLists = () => async dispatch => {
   const res = await axios.get("http://localhost:8080/api/catsShoppingList/all");
   dispatch({

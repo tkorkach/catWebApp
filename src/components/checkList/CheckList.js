@@ -52,7 +52,12 @@ class CheckList extends Component {
     return (
       <div className="itemList">
         {items.map(item => (
-          <CheckListItem key={item.id} item={item} listId={this.state.listId} />
+          <CheckListItem
+            key={item.id}
+            item={item}
+            listId={this.state.listId}
+            updateTextForCat={this.onCheckListItemInput.bind(this)}
+          />
         ))}
       </div>
     );
