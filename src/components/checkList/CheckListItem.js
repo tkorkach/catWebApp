@@ -27,9 +27,9 @@ class CheckListItem extends Component {
 
   updateValue(event) {
     this.setState({ value: event.target.value });
-    /*setTimeout(() => {
+    setTimeout(() => {
       this.props.updateTextForCat(this.state.value);
-    }, 1000);*/
+    }, 1000);
 
     if (this.timeout) clearTimeout(this.timeout);
     this.timeout = setTimeout(() => {
